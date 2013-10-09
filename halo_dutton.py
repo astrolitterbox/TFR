@@ -35,7 +35,7 @@ def getVvir(dynMass):
   return vVir
 
 
-stellarMassRange = np.arange(10**9.3, 10**11.0, 10e8)
+stellarMassRange = np.arange(0.7**(2)*10**9.3, 0.7**(2)*10**11.0, 10e8)
 
 #Mass to light ratio:
 MLRatio = 1.7
@@ -56,7 +56,7 @@ y0_hi = 10**1.89
 
 haloStellarMassRatio_lo = getHaloStellarMassRatio(stellarMassRange, alpha_lo, beta, x0, y0_lo, gamma)
 haloStellarMassRatio_hi = getHaloStellarMassRatio(stellarMassRange, alpha_hi, beta, x0, y0_hi, gamma)
-haloStellarMassRatio = getHaloStellarMassRatio(stellarMassRange, alpha, beta, x0, y0, gamma)
+haloStellarMassRatio = 0.7*getHaloStellarMassRatio(stellarMassRange, alpha, beta, x0, y0, gamma)
 
 #repeating Figure 1:
 
@@ -119,16 +119,14 @@ vVir_D_lo = getVvir(haloMass_lo)
 vVir_D_hi = getVvir(haloMass_hi)
 
 
-
 ax = fig.add_subplot(223)
 ax.plot(np.log10(vVir_B), absMag_B, label='Behroozi', c='b')
 ax.plot(np.log10(vVir_D), absMag_D, c='red', label='Dutton')
 ax.plot(np.log10(vVir_D_hi), absMag_D, c='g')
 ax.plot(np.log10(vVir_D_lo), absMag_D, c='g')
 
-#e = plt.plot(np.log10(vVir_B), -5.55*(np.log10(vVir_B) - 2.20) - 21.36, c="g", label = "Pizagno 2007")
-e = plt.plot(2.143 + 0.281*(np.log10((10**Mstellar)*(1/MLRatio)/10**10)), np.log10(vVir_B), label = "Pizagno 2007")
-
+e = plt.plot(np.log10(vVir_B), -5.55*(np.log10(vVir_B) - 2.20) - 21.36, c="g", label = "Pizagno 2007")
+e = plt.plot(np.log10(vVir_B), 2.143 + 0.281*(np.log10((10**Mstellar)*(1/MLRatio)/10**10)), label = "Pizagno 2007")
 plt.legend()
 plt.xlabel("log(1.2*v_vir)")
 plt.ylabel("M_r")
