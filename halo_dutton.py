@@ -56,7 +56,7 @@ y0_hi = 10**1.89
 
 haloStellarMassRatio_lo = getHaloStellarMassRatio(stellarMassRange, alpha_lo, beta, x0, y0_lo, gamma)
 haloStellarMassRatio_hi = getHaloStellarMassRatio(stellarMassRange, alpha_hi, beta, x0, y0_hi, gamma)
-haloStellarMassRatio = 0.7*getHaloStellarMassRatio(stellarMassRange, alpha, beta, x0, y0, gamma)
+haloStellarMassRatio = getHaloStellarMassRatio(stellarMassRange, alpha, beta, x0, y0, gamma)
 
 #repeating Figure 1:
 
